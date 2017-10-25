@@ -1,2 +1,7 @@
 *.pyc
 .idea
+.eggs/
+build/
+dist/
+whois_similarity_index.egg-info/
+*~

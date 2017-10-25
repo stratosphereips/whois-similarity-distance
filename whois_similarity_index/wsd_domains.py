@@ -1,12 +1,10 @@
 #!/usr/bin/env python
 import Levenshtein
-from datetime import datetime, timedelta
+from datetime import datetime
 from tld import get_tld
 import pprint as pp
 import pythonwhois
 from pythonwhois.shared import WhoisException
-from contextlib import contextmanager
-from collections import Iterable
 from passivetotal.common.utilities import is_ip
 from texttable import Texttable
 from _version import __version__
@@ -16,8 +14,6 @@ import dateutil.parser
 import numpy as np
 import sys
 import argparse
-import os
-import json
 import time
 import warnings
 
@@ -552,7 +548,7 @@ def compare_domains_ids(d1, d2, library='pw', raw=False):
     data.append(['Domain Duration (in days)', obj_a.domain_duration(),obj_b.domain_duration(),features_measure_dist['dist_duration']])
     data.append(['Total Distance:', "","",obj_a.get_whois_distance(obj_b)])
     table.add_rows(data)
-    print table.draw() + "\n"
+    print(table.draw() + "\n")
     print("WHOIS Distance: " + str(obj_a.get_whois_distance(obj_b)))
     print("Are related?: " + str(obj_a.get_whois_relationship(obj_b)))
     
@@ -563,7 +559,8 @@ def compare_domains_ids(d1, d2, library='pw', raw=False):
         print("################ WHOIS INFRO Second Domain ########################")
         pp.pprint(obj_b.raw_whois)
 
-if __name__ == '__main__':
+
+def main():
     parser = argparse.ArgumentParser("This python scripts can calculate the WHOIS Similarity Distance between two given domains.")
     parser.add_argument("domain_a", help="give First domain to compare")
     parser.add_argument("domain_b", help="give Second domain to compare")
@@ -574,6 +571,9 @@ if __name__ == '__main__':
     parser.add_argument("-v",'--version', action='version',
                         version='%(prog)s version: {version}'.format(version=__version__))
     args = parser.parse_args()
+    global THRESHOLD_DISTANCE
     THRESHOLD_DISTANCE = args.distance_threshold
     compare_domains_ids(args.domain_a, args.domain_b, args.whoislibrary,args.rawwhois)
 
+if __name__ == '__main__':
+    main()
