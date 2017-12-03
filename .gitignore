@@ -3,5 +3,6 @@
 .eggs/
 build/
 dist/
-whois_similarity_index.egg-info/
 *~
+/.activate
+/whois_similarity_distance.egg-info/
