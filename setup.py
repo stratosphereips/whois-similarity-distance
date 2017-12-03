@@ -25,7 +25,7 @@ setup(
     install_requires=REQUIRES,
     packages=find_packages(),
     url='https://github.com/stratosphereips/whois-similarity-distance',
-    download_url='https://github.com/stratosphereips/whois-similarity-distance/archive/v0.2.0a.tar.gz',
+    download_url='https://github.com/stratosphereips/whois-similarity-distance/archive/v0.2.0.tar.gz',
     license='MIT',
     description=' This python scripts can calculate the WHOIS Similarity Distance between two given domains.',
     long_description=README,
