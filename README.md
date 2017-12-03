@@ -4,7 +4,9 @@ This work is part of my master thesis and the soonest possible I going to add mo
 
 ## Authors
 - **Raúl B. Netto** 
-    ([@Piuliss](https://www.twitter.com/Piuliss), <raulbeni@gmail.com>, <rbenitez@uni.edu.py>, <benitrau@fit.cvut.cz>)
+    ([@Piuliss](https://www.twitter.com/Piuliss), <raulbeni@gmail.com>, <benitrau@fit.cvut.cz>)
+- **Sebastían García**
+    ([@eldraco](https://www.twitter.com/eldraco), <eldraco@gmail.com>)
 
 ## Getting started
     
