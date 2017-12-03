@@ -1,2 +1,2 @@
 from .wsd_domains import *
-from ._version import *
+from .__version__ import *

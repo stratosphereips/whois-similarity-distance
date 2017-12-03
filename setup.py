@@ -5,12 +5,15 @@ import os
 from setuptools import find_packages, setup
 
 exec(open(os.path.join(os.path.dirname(__file__),
-                       'whois_similarity_distance/_version.py')).read())  # defines __version__
-
-with open('requirements.txt') as handle:
-    REQUIRES = handle.read().splitlines()
-    REQUIRES = [req[:req.find('=')] for req in REQUIRES]
-    print(REQUIRES)
+                       'whois_similarity_distance/__version__.py')).read())  # defines __version__
+REQUIRES = ['certifi', 'chardet', 'ez-setup', 'future', 'idna', 'numpy', 'passivetotal', 'python-dateutil', 'python-Levenshtein', 'pythonwhois', 'requests', 'six', 'texttable', 'tld', 'urllib3']
+try:
+    with open('requirements.txt') as handle:
+        REQUIRES = handle.read().splitlines()
+        REQUIRES = [req[:req.find('=')] for req in REQUIRES]
+        print(REQUIRES)
+except:
+    print("requirements.txt is not found")
         
 
 with open('README.md') as handle:

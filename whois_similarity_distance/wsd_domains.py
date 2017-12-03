@@ -9,7 +9,7 @@ import warnings
 from texttable import Texttable
 
 from whois_similarity_distance.util.whois_obj import WhoisObj
-from ._version import __version__
+from .__version__ import __version__
 from .util.constants import KEY_EXPIRATION_DATE, KEY_CREATION_DATE
 
 warnings.filterwarnings("ignore")
