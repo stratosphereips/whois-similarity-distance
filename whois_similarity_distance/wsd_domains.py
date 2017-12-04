@@ -7,10 +7,9 @@ import time
 import warnings
 
 from texttable import Texttable
-
 from whois_similarity_distance.util.whois_obj import WhoisObj
 from .__version__ import __version__
-from .util.constants import KEY_EXPIRATION_DATE, KEY_CREATION_DATE
+from .util.constants import KEY_EXPIRATION_DATE, KEY_CREATION_DATE, KEY_DOMAIN_NAME
 
 warnings.filterwarnings("ignore")
 
@@ -31,15 +30,24 @@ def compare_domains_ids(d1, d2, library='pw', raw=False):
     features_measure_dist = obj_a.features_measure_distance_dict(obj_b)
     keys_set = set(obj_a.features_whois.keys())
     dates_set = set([KEY_EXPIRATION_DATE, KEY_CREATION_DATE])
-    for key in list(keys_set - dates_set):
+    domain_name_set =set([KEY_DOMAIN_NAME])
+    for key in list(keys_set - dates_set - domain_name_set):
         data.append([key,obj_a.features_whois[key],obj_b.features_whois[key],features_measure_dist['dist_'+key]])
-    data.append(['Domain Duration (in days)', obj_a.domain_duration(),obj_b.domain_duration(),features_measure_dist['dist_duration']])
+    data.append(['Domain Duration (in days)',
+                 obj_a.domain_duration(),
+                 obj_b.domain_duration(),
+                 features_measure_dist['dist_duration']])
+    data.append([KEY_DOMAIN_NAME + '*',
+                 obj_a.features_whois[KEY_DOMAIN_NAME],
+                 obj_b.features_whois[KEY_DOMAIN_NAME],
+                 features_measure_dist['dist_domain_name']])
     data.append(['Total Distance:', "","",obj_a.get_whois_distance(obj_b)])
     table.add_rows(data)
     print(table.draw() + "\n")
+    print("* Domain Name distance is excluded of total sum")
     print("WHOIS Distance: " + str(obj_a.get_whois_distance(obj_b)))
     print("Are related?: " + str(obj_a.get_whois_relationship(obj_b)))
-    
+
     if raw:
         print("Library for getting WHOIS: " + library)
         print("################# WHOIS INFO First Domain #######################")
@@ -49,11 +57,13 @@ def compare_domains_ids(d1, d2, library='pw', raw=False):
 
 
 def main():
-    parser = argparse.ArgumentParser("This python scripts can calculate the WHOIS Similarity Distance between two given domains.")
+    parser = argparse.ArgumentParser("This python scripts can calculate the WHOIS Similarity "
+                                     "Distance between two given domains.")
     parser.add_argument("domain_a", help="give First domain to compare")
     parser.add_argument("domain_b", help="give Second domain to compare")
     parser.add_argument("-rw", "--rawwhois", help="See WHOIS information of both domains", action="store_true")
-    parser.add_argument("-wl", "--whoislibrary",help="Set whois library to choose, pt => passivetotal, pw => pythonwhois", choices=['pw', 'pt'], default='pw')
+    parser.add_argument("-wl", "--whoislibrary",help="Set whois library to choose, pt => passivetotal, "
+                                                     "pw => pythonwhois", choices=['pw', 'pt'], default='pw')
     parser.add_argument("-th", "--distance_threshold",help="Set the threshold for determine if two domains are related "
                                                           +"using their WHOIS information", default='75', type=int)
     parser.add_argument("-v",'--version', action='version',
