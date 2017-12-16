@@ -1,3 +1,4 @@
+#-*- coding: utf-8 -*-
 # Copyright (C) 2016-2017 Stratosphere Lab
 # This file is part of ManaTI Project - https://stratosphereips.org
 # See the file 'LICENSE' for copying permission.
@@ -17,6 +18,13 @@ from .util.constants import KEY_DOMAIN_NAME, KEY_REGISTRAR, KEY_NAME, KEY_ORG, K
 
 warnings.filterwarnings("ignore")
 reload_module(sys)
+
+# TO-DO this is not working python > 3.
+#  The bug of encode(utf-8) is still present for python > 3
+if sys.version_info <= (3,0):
+    reload(sys)
+    sys.setdefaultencoding('utf-8')
+
 os.environ["PYTHONIOENCODING"] = "utf-8"
 
 
