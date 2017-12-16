@@ -11,6 +11,7 @@ from passivetotal.common.utilities import is_ip
 from passivetotal.libs.whois import WhoisRequest
 from pythonwhois.shared import WhoisException
 from tld import get_tld
+from six import string_types
 
 from whois_similarity_distance.whois_distance import distance_domains, features_domains
 from whois_similarity_distance.util.constants import THRESHOLD_DISTANCE, KEY_CREATION_DATE, KEY_EXPIRATION_DATE
@@ -86,7 +87,7 @@ class WhoisObj(object):
 
         def get_name_servers():
             ns = result.get('nameServers', [])
-            ns = ns.split(',') if isinstance(ns, str) else ns
+            ns = ns.split(',') if isinstance(ns, string_types) else ns
             return ns
 
         def get_registrar():
@@ -105,11 +106,11 @@ class WhoisObj(object):
         def get_creation_date():
             cd_str = result.get('registered', None)
             if cd_str:
-                if isinstance(cd_str, str):
+                if isinstance(cd_str, string_types):
                     try:
                         return dateutil.parser.parse(cd_str)
                     except:
-                        print(("Date Invalid ", self.id, cd_str))
+                        print("Date Invalid ", self.id, cd_str)
                         return None
                 elif isinstance(cd_str, datetime):
                     return cd_str
@@ -119,11 +120,11 @@ class WhoisObj(object):
         def get_expiration_date():
             cd_str = result.get('expiresAt', None)
             if cd_str:
-                if isinstance(cd_str, str):
+                if isinstance(cd_str, string_types):
                     try:
                         return dateutil.parser.parse(cd_str)
                     except:
-                        print(("Date Invalid ", self.id, cd_str))
+                        print("Date Invalid ", self.id, cd_str)
                         return None
                 elif isinstance(cd_str, datetime):
                     return cd_str
@@ -206,7 +207,7 @@ class WhoisObj(object):
 
         def get_name_servers():
             ns = result.get('nameservers', [])
-            ns = ns.split(',') if isinstance(ns, str) else ns
+            ns = ns.split(',') if isinstance(ns, string_types) else ns
             return ns
 
         def get_registrar():
@@ -240,11 +241,11 @@ class WhoisObj(object):
         def get_creation_date():
             cd_str = result.get('creation_date', [])
             if cd_str and len(cd_str) > 0:
-                if isinstance(cd_str[0], str):
+                if isinstance(cd_str[0], string_types):
                     try:
                         return dateutil.parser.parse(cd_str[0])
                     except:
-                        print(("Date Invalid ", self.id, cd_str[0]))
+                        print("Date Invalid ", self.id, cd_str[0])
                         return None
                 elif isinstance(cd_str[0], datetime):
                     return cd_str[0]
@@ -254,11 +255,11 @@ class WhoisObj(object):
         def get_expiration_date():
             ed_str = result.get('expiration_date', [])
             if ed_str and len(ed_str) > 0:
-                if isinstance(ed_str[0], str):
+                if isinstance(ed_str[0], string_types):
                     try:
                         return dateutil.parser.parse(ed_str[0])
                     except:
-                        print(("Date Invalid ", self.id, ed_str[0]))
+                        print("Date Invalid ", self.id, ed_str[0])
                         return None
                 elif isinstance(ed_str[0], datetime):
                     return ed_str[0]
