@@ -7,3 +7,5 @@ dist/
 /.activate
 /whois_similarity_distance.egg-info/
 /.pypirc
+/build/
+/dist/
