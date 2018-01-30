@@ -6,7 +6,8 @@ from setuptools import find_packages, setup
 
 exec(open(os.path.join(os.path.dirname(__file__),
                        'whois_similarity_distance/__version__.py')).read())  # defines __version__
-REQUIRES = ['certifi', 'chardet', 'ez-setup', 'future', 'idna', 'numpy', 'passivetotal', 'python-dateutil', 'python-Levenshtein', 'pythonwhois', 'requests', 'six', 'texttable', 'tld', 'urllib3']
+REQUIRES = ['certifi', 'chardet', 'ez-setup', 'future', 'idna', 'numpy', 'passivetotal',
+            'python-dateutil', 'python-Levenshtein', 'pythonwhois', 'requests', 'six', 'texttable', 'tld', 'urllib3']
 try:
     with open('requirements.txt') as handle:
         REQUIRES = handle.read().splitlines()
@@ -28,7 +29,7 @@ setup(
     install_requires=REQUIRES,
     packages=find_packages(),
     url='https://github.com/stratosphereips/whois-similarity-distance',
-    download_url='https://github.com/stratosphereips/whois-similarity-distance/archive/v0.2.0.tar.gz',
+    download_url='https://github.com/stratosphereips/whois-similarity-distance/archive/v'+str(__version__)+'.tar.gz',
     license='MIT',
     description=' This python scripts can calculate the WHOIS Similarity Distance between two given domains.',
     long_description=README,
