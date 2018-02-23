@@ -17,7 +17,7 @@ This work is part of my master thesis and the soonest possible I going to add mo
     python ./wsd_domains.py google.com cisco.com
     
 ## Using pip 
-You can find [whois_similarity_distance](https://pypi.python.org/pypi/whois_similarity_distance/0.2.0.0) 
+You can find [whois_similarity_distance](https://pypi.python.org/pypi/whois_similarity_distance) 
 in Pypi
    
     pip install whois_similarity_distance 

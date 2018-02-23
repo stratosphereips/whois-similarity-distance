@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Fixed
 - Tests: fixed installation
 
+## 1.0.1 - 2018-02-23 - hotfix
+### Added
+* fix problem to package the library with the pickle file. This file has the trained classifier
+
 ## 1.0.0 - 2018-02-23
 ### Added
 - Add GradientBoosting trained classifier to related domains using their WHOIS information
