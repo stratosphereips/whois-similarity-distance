@@ -11,6 +11,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Fixed
 - Tests: fixed installation
 
+## 1.0.0 - 2018-02-23
+### Added
+- Add GradientBoosting trained classifier to related domains using their WHOIS information
+ using the features distances proposed in this algorithm 😃 
+
 ## 0.2.0 - 2017-12-3
 ### Added
 - Compatibility for python3
