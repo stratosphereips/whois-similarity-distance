@@ -7,12 +7,15 @@ from datetime import datetime
 
 import dateutil.parser
 import pythonwhois
+import numpy as np
+import pickle
+import os
+
 from passivetotal.common.utilities import is_ip
 from passivetotal.libs.whois import WhoisRequest
 from pythonwhois.shared import WhoisException
 from tld import get_tld
 from six import string_types
-
 from whois_similarity_distance.whois_distance import distance_domains, features_domains
 from whois_similarity_distance.util.constants import THRESHOLD_DISTANCE, KEY_CREATION_DATE, KEY_EXPIRATION_DATE
 
@@ -20,7 +23,22 @@ from whois_similarity_distance.util.constants import THRESHOLD_DISTANCE, KEY_CRE
 # from passivetotal.libs.whois import *
 
 def relate_domains(whois_info_a, whois_info_b):
-    return distance_domains(whois_info_a, whois_info_b) <= THRESHOLD_DISTANCE
+    features_dist = features_domains(whois_info_a, whois_info_b)[0]
+    feature_values = [features_dist["dist_registrar"],
+                      features_dist["dist_name"],
+                      features_dist["dist_zipcode"],
+                      features_dist["dist_name_servers"],
+                      features_dist["dist_domain_name"],
+                      features_dist["dist_emails"],
+                      features_dist["dist_duration"],
+                      features_dist["dist_org"]]
+    values_array = np.array([feature_values], np.int32)
+    path = os.path.dirname(__file__)
+    pickle_cls_path = os.path.join(path, 'gbc_cls.p')
+    # GradientBoostingClassifier
+    gbc_cls = pickle.load(open(pickle_cls_path, "rb"))
+    y_pre = gbc_cls.predict(values_array)
+    return y_pre[0] == 1
 
 
 class WhoisObj(object):

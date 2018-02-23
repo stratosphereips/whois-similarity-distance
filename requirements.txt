@@ -13,3 +13,5 @@ six==1.10.0
 texttable==0.9.1
 tld==0.7.9
 urllib3==1.22
+scikit-learn==0.19.1
+scipy==1.0.0
