@@ -47,6 +47,7 @@ setup(
         'Topic :: Security',
     ],
     keywords='whois similarity',
+    include_package_data=True,
     entry_points={
         'console_scripts': [
             'wsd_domains = whois_similarity_distance.wsd_domains:main',
