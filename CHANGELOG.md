@@ -5,11 +5,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
-### Added
-- MANIFEST.in file to include static documentation files in source tarballs.
-
-### Fixed
-- Tests: fixed installation
 
 ## 1.0.1 - 2018-02-23 - hotfix
 ### Added
@@ -17,8 +12,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## 1.0.0 - 2018-02-23
 ### Added
+- MANIFEST.in file to include static documentation files in source tarballs.
 - Add GradientBoosting trained classifier to related domains using their WHOIS information
  using the features distances proposed in this algorithm 😃 
+
+### Fixed
+- Tests: fixed installation
 
 ## 0.2.0 - 2017-12-3
 ### Added
