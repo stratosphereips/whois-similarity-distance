@@ -10,6 +10,7 @@ import pythonwhois
 import numpy as np
 import pickle
 import os
+import sys
 
 from passivetotal.common.utilities import is_ip
 from passivetotal.libs.whois import WhoisRequest
@@ -36,7 +37,11 @@ def relate_domains(whois_info_a, whois_info_b):
     path = os.path.dirname(__file__)
     pickle_cls_path = os.path.join(path, 'gbc_cls.p')
     # GradientBoostingClassifier
-    gbc_cls = pickle.load(open(pickle_cls_path, "rb"))
+    if sys.version_info <= (3, 0):
+        gbc_cls = pickle.load(open(pickle_cls_path, "rb"))
+    else:
+        gbc_cls = pickle.load(open(pickle_cls_path, "rb"), encoding='latin1')
+
     y_pre = gbc_cls.predict(values_array)
     return y_pre[0] == 1
 

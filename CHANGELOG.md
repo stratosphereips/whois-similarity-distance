@@ -4,7 +4,9 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## 1.0.2 - 2018-03-6 - hotfix
+### Fixed
+* Fix a problem with pickle open a .ps file in Python 3+
 
 ## 1.0.1 - 2018-02-23 - hotfix
 ### Added
@@ -29,3 +31,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## 0.1a - 2017-09-13
 ### Added
 - Adding version version of WSD algorithm
+
+## [Unreleased]
+### Added
+- MANIFEST.in file to include static documentation files in source tarballs.
+
+### Fixed
+- Tests: fixed installation
