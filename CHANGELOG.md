@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## 1.0.2 - 2018-03-6 - hotfix
 ### Fixed
-* Fix a problem with pickle open a .ps file in Python 3+
+* Fix a problem with Pickle opening a .ps file on Python 3+
 
 ## 1.0.1 - 2018-02-23 - hotfix
 ### Added
