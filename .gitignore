@@ -9,3 +9,4 @@ dist/
 /.pypirc
 /build/
 /dist/
+.DS_STORE
