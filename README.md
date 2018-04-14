@@ -17,14 +17,14 @@ This work is part of my master thesis and the soonest possible I going to add mo
     python ./wsd_domains.py google.com cisco.com
     
 ## Using pip 
-You can find [whois_similarity_distance](https://pypi.python.org/pypi/whois_similarity_distance) 
+You can find [whois_similarity_distance](https://pypi.org/project/whois_similarity_distance/)
 in Pypi
    
     pip install whois_similarity_distance 
     
 ## Optional
-WSD scripts works with [pythonwhois](https://pypi.python.org/pypi/pythonwhois/2.4.3) library to get the 
-WHOIS information of the domains. However, it is possible to use [passivetotal](https://pypi.python.org/pypi/passivetotal) library. 
+WSD scripts works with [pythonwhois](https://pypi.org/project/pythonwhois/2.4.3/) library to get the
+WHOIS information of the domains. However, it is possible to use [passivetotal](https://pypi.org/project/passivetotal/) library.
 It is the official library provided by the [RiskIQ](https://community.riskiq.com) community. 
 For using *passivetotal* to get WHOIS information, you must have a account in [RiskIQ](https://community.riskiq.com)
 and follow the next instructions:
