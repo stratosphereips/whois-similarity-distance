@@ -188,7 +188,7 @@ class WhoisObj(object):
             elif not d:
                 print("PW, domain null " + str(self.domain) + " ")
         except WhoisException as e:
-            print("PW rejects " + str(self.domain) + ", ERROR TRACE " + e.message)
+            print("PW rejects " + str(self.domain) + ", ERROR TRACE " + str(e))
         except:
             print("PW rejects " + str(self.domain))
 
