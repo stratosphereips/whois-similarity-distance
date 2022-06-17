@@ -3,7 +3,7 @@ chardet==3.0.4
 ez-setup==0.9
 future==0.16.0
 idna==2.6
-numpy==1.13.1
+numpy==1.21.0
 passivetotal==1.0.30
 python-dateutil==2.6.1
 python-Levenshtein==0.12.0
